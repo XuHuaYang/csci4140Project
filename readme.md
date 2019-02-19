@@ -24,6 +24,6 @@ incognito netdisc:
 	3)Download:all public files can download,private files need share code for other users to download
 	4)Delete:related to deduplication
 	5)Share:specify the share code when you want to share a private file, the code can be used only once.
-	6)Search:anoymous user can only search public files,logged in users can search his private files
+	6)Search:anonymous  user can only search public files,logged in users can search his private files and public files
 	7)Client Side:windows platform,may use wpf to generate UI
 	8)Server Side:deploy the backend and store the data,connect to remote mysql database
