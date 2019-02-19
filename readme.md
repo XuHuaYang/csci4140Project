@@ -10,4 +10,20 @@
 
 5.分享：private文件需要分享才能下载，需要输入提取码
 
-6.wpf做UI，找个服务器搭网站和储存文件，mysql的数据库管理，
+6.站内搜索，登陆，
+
+7.wpf做UI，找个服务器搭网站和储存文件，mysql的数据库管理
+
+
+incognito netdisc:
+1.basic fuctions:
+	1)User management:login,register
+		anonymous user can see public files on netdisc
+		logged user can see all files on netdisc.May use mysql to manage.
+	2)Upload:only logged in user can upload files,specify the upload mode,using deduplication to reduce storage(optional). May use mysql to manage file names.
+	3)Download:all public files can download,private files need share code for other users to download
+	4)Delete:related to deduplication
+	5)Share:specify the share code when you want to share a private file, the code can be used only once.
+	6)Search:anoymous user can only search public files,logged in users can search his private files
+	7)Client Side:windows platform,may use wpf to generate UI
+	8)Server Side:deploy the backend and store the data,connect to remote mysql database
