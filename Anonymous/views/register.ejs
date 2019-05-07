@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+  <script  src="./javascripts/register.js"></script>
+  <link rel="stylesheet" type="text/css" href="./stylesheets/Auth.css"/>
+</head>
+<body>
+  <div id="content" style="height: 380px">
+    <div class="login-header">
+        <img src="./images/invisible-person-of-clothes.png">
+        <strong>Register</strong>
+    </div>
+    <p hidden="hidden" id="registerState"><%= RegisterState %></p>
+    <form method="post">
+        <div class="login-input-box">
+            <span class="icon icon-user"></span>
+            <input type="text" name="username" id="username" placeholder="Please enter your username">
+        </div>
+        <div class="login-input-box">
+            <span class="icon icon-password"></span>
+            <input type="password" name="password" id="password" placeholder="Please enter your password">
+        </div>
+        <div class="login-input-box">
+            <span class="icon icon-password"></span>
+            <input type="password" name="Comfirmpassword" id="Comfirmpassword" placeholder="Please enter your password again">
+        </div>
+         <input type="submit" name="submit" id="callpost" hidden="hidden">
+    </form>
+	  <div class="login-button-box">
+        <button id="register">Sign Up</button>
+    </div>
+    <div class="logon-box">
+        <a href="/login">Login</a>
+    </div>
+  </div>
+</body>
+</html>

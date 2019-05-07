@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<link rel="icon" href="/images/invisible-person-of-clothes.png"/>
+    <title>Anonymous File</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="./javascripts/home.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  </head>
+  <body>
+  	
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><%=title %></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/upload">Upload</a></li>
+            <li><a href="/search">Search</a></li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <% if(loginState != 2){%>
+          	<li ><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            <%}else{%>
+            <li><a><%=username%></a></li>
+            <li><a id="logout" style="color: #FF0000" >Log Out</a></li>
+            <%}%>
+          </ul>
+
+          
+        </div><!--/.nav-collapse -->
+
+		
+      </div>
+
+    </nav>
+
+    <div class="container">
+    	<div class="jumbotron">
+        <br>
+    	<i class="text-white bg-dark rounded">
+        At here you can get others shared files and share files anonymously. You can search public files by tag or share code. Private files can only be assessed by yourself or with share code.
+    	</i>
+  		</div>
+    </div>
+
+    
+    <div class="container">
+      <div class="row">
+          <% for(var i=0;i < data.length;i++){%>
+          <% var temp="."+data[i]["path"];%>
+          <div class="card col-sm-3 text-white bg-info mb-3">
+          <div class="card-body" id="<%=i%>">
+            <br>
+            <h5 class="card-title" id="title"><%=data[i]["file_name"]%></h5>
+            <h6 class="card-subtitle mb-2 text-muted" id="tag"><%=data[i]["tag1"]%> <%=data[i]["tag2"]%> <%=data[i]["tag3"]%></h6>
+            <a href="<%=temp%>" class="card-link" id="download<%=i%>" >Download</a>
+         </div>
+         <br>
+         </div>
+      <%}%>
+
+      
+    </div>
+  </div>
+  <!--
+    <div class="container">
+    	<div class="row">
+      		<% for(var i=0;i < Math.min((data.length - 8*page),8);i++){%>
+          <% var temp="."+data[i+page*8]["path"];%>
+  				<div class="card col-sm-3 text-white bg-info mb-3">
+  			  <div class="card-body" id="<%=i%>">
+  			  	<br>
+  			    <h5 class="card-title" id="title"><%=data[i+page*8]["file_name"]%></h5>
+  			    <h6 class="card-subtitle mb-2 text-muted" id="tag"><%=data[i+page*8]["tag1"]%> <%=data[i+page*8]["tag2"]%> <%=data[i+page*8]["tag3"]%></h6>
+  			    <a href="<%=temp%>" class="card-link" id="download<%=i%>" >Download</a>
+			   </div>
+			   <br>
+			   </div>
+    	<%}%>
+
+			
+		</div>
+	</div>-->
+
+  <!--
+	<div class="container text-center">
+		<ul class="pagination" id="paging">
+			<li><a href="<%=Math.max(page-1,0)%>" id="pre">&laquo;</a></li>
+			<% for(var i=0;i <= data.length/8;i++){%>
+				<% if(i == page){%>
+					<li class="active"><a href="<%=i%>"><%=i+1%></a></li>
+				<%}else{%>
+					<li><a href="<%=i%>"><%=i+1%></a></li>
+				<%}%>
+			<%}%>
+			<li><a href="<%=Math.min(page+1,data.length/8)%>" id="next">&raquo;</a></li>
+		</ul>
+	</div>-->
+         
+
+  <form method="post" hidden="hidden">
+    <input type="submit" name="submit" id="callpost" hidden="hidden">
+  </form>
+
+
+
+  <div class="container">
+  	<!-- Footer -->
+  	<footer class="footer-no-nav navbar-fixed-bottom">
+
+  	<!-- Copyright -->
+  		<div class="footer-copyright text-center py-3" >
+    		<div >Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"          title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"          title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    	</div>
+  	</footer>
+  	<!-- Footer -->
+  </div><!-- /.container -->
+
+
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  </body>
+
+  
+
+</html>

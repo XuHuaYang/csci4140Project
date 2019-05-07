@@ -1,0 +1,29 @@
+{
+  "name": "anonymous",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "crypto": "^1.0.1",
+    "dao": "0.0.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-session": "^1.16.1",
+    "fs": "0.0.1-security",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "js-sha256": "^0.9.0",
+    "lodash": "^4.17.11",
+    "md5": "^2.2.1",
+    "moment": "^2.24.0",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.1",
+    "mysql": "^2.17.1",
+    "sha256": "^0.2.0"
+  }
+}
