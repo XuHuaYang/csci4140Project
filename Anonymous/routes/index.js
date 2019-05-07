@@ -68,66 +68,73 @@ var moveFile = (file, dir2, base)=>{
 };
 
 router.post('/upload', upload.single('file'),function (req, res, next) {
-    if(have_logined==true){
-        var original = './public/storage'+'/' + file_name;
-        var moved = './public/storage';
-        var upload_type = 'public';
-        if (req.body.type == 'public') {  
-            console.log('public');
-            upload_type = '/storage/public/';
-            moved = moved + '/public/';
-        }
-        else if (req.body.type == 'private'){
-            console.log('private');
-            upload_type = '/storage/private/';
-            moved = moved + '/private/';
-        }
+	if (req.body.logoutPost == 1) {
+		loginState = 0;
+    	RegisterState = 0;
+   	 	username = null;
+    	have_logined = false;
+    	res.redirect('/');
+	} else {
+	    if(have_logined==true){
+	        var original = './public/storage'+'/' + file_name;
+	        var moved = './public/storage';
+	        var upload_type = 'public';
+	        if (req.body.type == 'public') {  
+	            console.log('public');
+	            upload_type = '/storage/public/';
+	            moved = moved + '/public/';
+	        }
+	        else if (req.body.type == 'private'){
+	            console.log('private');
+	            upload_type = '/storage/private/';
+	            moved = moved + '/private/';
+	        }
 
-        var id = crypto.createHash('sha256').update(Date()+file_name).digest('hex');
+	        var id = crypto.createHash('sha256').update(Date()+file_name).digest('hex');
 
-        var new_file_name = id + file_extend;
-        //console.log(new_file_name);
+	        var new_file_name = id + file_extend;
+	        //console.log(new_file_name);
 
-        moveFile(original, moved, new_file_name);
+	        moveFile(original, moved, new_file_name);
 
-        var full_path =upload_type+new_file_name;
-        console.log(full_path);
-        var type = req.body.type;
+	        var full_path =upload_type+new_file_name;
+	        console.log(full_path);
+	        var type = req.body.type;
 
-        var uploader = username; 
+	        var uploader = username; 
 
-        var tag1 = req.body.tag1;
-        var tag2 = req.body.tag2;
-        var tag3 = req.body.tag3; 
-        mysql.Upload(client,id, req.body.fileName,uploader,type,full_path,tag1,tag2,tag3,function(result){
-            console.log(result);
-            extract_code = null;
-            res.render('upload', { title: 'Anonymous Files',extract_code:extract_code,loginState:loginState,username:username});
-        });
-    }else{
-        var original = './public/storage'+'/' + file_name; 
-        var moved = './public/storage/anonymous/';
-        console.log(original);
-        console.log(moved);
+	        var tag1 = req.body.tag1;
+	        var tag2 = req.body.tag2;
+	        var tag3 = req.body.tag3; 
+	        mysql.Upload(client,id, req.body.fileName,uploader,type,full_path,tag1,tag2,tag3,function(result){
+	            console.log(result);
+	            extract_code = null;
+	            res.render('upload', { title: 'Anonymous Files',extract_code:extract_code,loginState:loginState,username:username});
+	        });
+	    }else{
+	        var original = './public/storage'+'/' + file_name; 
+	        var moved = './public/storage/anonymous/';
+	        console.log(original);
+	        console.log(moved);
 
-        var extract_code = md5(Date()+file_name);
-        var new_file_name = extract_code + file_extend;
+	        var extract_code = md5(Date()+file_name);
+	        var new_file_name = extract_code + file_extend;
 
-        moveFile(original, moved, new_file_name);
+	        moveFile(original, moved, new_file_name);
 
-        var full_path = '/storage/anonymous/'+new_file_name;
+	        var full_path = '/storage/anonymous/'+new_file_name;
 
-        var tag1 = req.body.tag1;
-        var tag2 = req.body.tag2;
-        var tag3 = req.body.tag3; 
+	        var tag1 = req.body.tag1;
+	        var tag2 = req.body.tag2;
+	        var tag3 = req.body.tag3; 
 
-        mysql.UploadForAnonymous(client,extract_code,req.body.fileName,full_path,req.body.type,tag1,tag2,tag3,function(result){
-            console.log(result);
-            extract_code = result;
-            res.render('upload', { title: 'Anonymous Files',extract_code:extract_code,loginState:loginState,username:username});
-        });
-
-    }
+	        mysql.UploadForAnonymous(client,extract_code,req.body.fileName,full_path,req.body.type,tag1,tag2,tag3,function(result){
+	            console.log(result);
+	            extract_code = result;
+	            res.render('upload', { title: 'Anonymous Files',extract_code:extract_code,loginState:loginState,username:username});
+	        });
+	    }
+	}
 });
 
 router.get('/upload', function(req, res, next) {
@@ -156,7 +163,7 @@ router
         res.render('index', { title: 'Anonymous Files',data:tempAnonyousData,page:0,loginState:loginState,username:username});
         });
     }else{
-        mysql.DisplayPrivate(client,username,function(result){
+        mysql.DisplayUser(client,username,function(result){
             tempData = JSON.parse(JSON.stringify(result));;
             console.log(tempData);
             res.render('index', { title: 'Anonymous Files',data:tempData,page:0,loginState:loginState,username:username});
@@ -176,13 +183,21 @@ router
 /*Start of Search Page */
 var searchResult = [];
 router.post('/search', function(req,res,next){
-    //var searchOption = req.body.option;
-    var search_content = req.body.search_content;
-    mysql.Search(client,search_content,username,loginState,function(result){
-        searchResult = JSON.parse(JSON.stringify(result));;
-        console.log(searchResult);
-        res.render('search', { title: 'Anonymous Files',page:0,data:searchResult,loginState:loginState,username:username});
-    });
+	if (req.body.logoutPost == 1) {
+		loginState = 0;
+	    RegisterState = 0;
+	    username = null;
+	    have_logined = false;
+	    res.redirect('/');
+	} else {
+	    //var searchOption = req.body.option;
+	    var search_content = req.body.search_content;
+	    mysql.Search(client,search_content,username,loginState,function(result){
+	        searchResult = JSON.parse(JSON.stringify(result));;
+	        console.log(searchResult);
+	        res.render('search', { title: 'Anonymous Files',page:0,data:searchResult,loginState:loginState,username:username});
+	    });
+	}
 });
 
 router.get('/search',function(req,res,next){
@@ -255,5 +270,37 @@ router
         });
 });
 /**/
+
+/*start of file pool */
+router
+.get('/filepool', function(req, res, next) {
+
+	var tempData = [];
+
+
+    // loginState = loginState;
+    //username = req.session.username;
+    if(loginState == 0 || loginState == 1){
+        mysql.Display(client,function(result){
+        tempAnonyousData = JSON.parse(JSON.stringify(result));
+        console.log(tempAnonyousData);
+        res.render('filepool', { title: 'Anonymous Files',data:tempAnonyousData,page:0,loginState:loginState,username:username});
+        });
+    }else{
+        mysql.DisplayFilePool(client,username,function(result){
+            tempData = JSON.parse(JSON.stringify(result));;
+            console.log(tempData);
+            res.render('filepool', { title: 'Anonymous Files',data:tempData,page:0,loginState:loginState,username:username});
+        });
+    }
+})
+.post('/filepool',function(req,res){
+    loginState = 0;
+    RegisterState = 0;
+    username = null;
+    have_logined = false;
+    res.redirect('/');
+});
+
 module.exports = router;
 

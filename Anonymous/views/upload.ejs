@@ -27,11 +27,13 @@
             <li ><a href="/">Home</a></li>
             <li class="active"><a href="/upload">Upload</a></li>
             <li ><a href="/search">Search</a></li>
+            <li><a href="/filepool">File Pool</a></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <% if(loginState != 2){%>
             <li ><a href="/login">Login</a></li>
             <li><a href="/register">Register</a></li>
+
             <%}else{%>
             <li><a><%=username%></a></li>
             <li><a id="logout" style="color: #FF0000" >Log Out</a></li>
@@ -46,6 +48,7 @@
   <br>
   <div class="container">
     <form action="/upload" method="post" enctype="multipart/form-data"><!--Start of Form-->
+      <input type="text" name="logoutPost" id="logoutPost" value=2 hidden="hidden">
 
       <fieldset class="form-group">
         <div class="row">
@@ -63,7 +66,11 @@
           </div>
       </fieldset>
 
+      <% if(loginState != 2){%>
+      <fieldset class="form-group" hidden="hidden">
+        <%}else{%>
       <fieldset class="form-group">
+        <%}%>
         <div class="row">
           <legend class="col-form-label col-sm-2 pt-0">Upload options</legend>
           <div class="col-sm-10">
@@ -116,6 +123,12 @@
       </div>
     </form><!--End of Form-->
   </div>
+
+  <form method="post" hidden="hidden">
+    <input type="text" name="logoutPost" id="logoutPost" value=1 hidden="hidden">
+    <input type="submit" name="submit" id="callpost" hidden="hidden">
+  </form>
+
 
 
   <div class="container">

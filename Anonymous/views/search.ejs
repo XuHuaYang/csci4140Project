@@ -28,6 +28,7 @@
             <li ><a href="/">Home</a></li>
             <li><a href="/upload">Upload</a></li>
             <li class="active"><a href="/search">Search</a></li>
+            <li><a href="/filepool">File Pool</a></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <% if(loginState != 2){%>
@@ -44,9 +45,16 @@
 
     </nav>
 
+  <form method="post" hidden="hidden">
+    <input type="text" name="logoutPost" id="logoutPost" value=1 hidden="hidden">
+    <input type="submit" name="submit" id="callpost" hidden="hidden">
+  </form>
+
+
 <br>
 <div class="container">
   <form class="form-inline mt-2 col-sm-8" action="/search" method="post" >
+      <input type="text" name="logoutPost" id="logoutPost" value=2 hidden="hidden">
       <input class="form-control col-sm-4" type="text" placeholder="Search" aria-label="Search" name="search_content">
       <!--
       <label for="name">Search Filter</label>

@@ -27,6 +27,7 @@
             <li class="active"><a href="/">Home</a></li>
             <li><a href="/upload">Upload</a></li>
             <li><a href="/search">Search</a></li>
+            <li><a href="/filepool">File Pool</a></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <% if(loginState != 2){%>
@@ -60,15 +61,15 @@
       <div class="row">
           <% for(var i=0;i < data.length;i++){%>
           <% var temp="."+data[i]["path"];%>
-          <div class="card col-sm-3 text-white bg-info mb-3">
+          <a href="<%=temp%>"  target="_blank"><div class="card col-sm-3 text-white bg-info mb-3">
           <div class="card-body" id="<%=i%>">
             <br>
             <h5 class="card-title" id="title"><%=data[i]["file_name"]%></h5>
             <h6 class="card-subtitle mb-2 text-muted" id="tag"><%=data[i]["tag1"]%> <%=data[i]["tag2"]%> <%=data[i]["tag3"]%></h6>
-            <a href="<%=temp%>" class="card-link" id="download<%=i%>" >Download</a>
+            <a href="<%=temp%>" class="card-link" id="download<%=i%>" download="<%=data[i]['file_name']%>" >Download</a>
          </div>
          <br>
-         </div>
+         </div></a>
       <%}%>
 
       
