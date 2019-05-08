@@ -14,7 +14,6 @@
 
 7.wpf做UI，找个服务器搭网站和储存文件，mysql的数据库管理
 
-
 incognito netdisc:
 1.basic fuctions:
 	1)User management:login,register
@@ -27,3 +26,14 @@ incognito netdisc:
 	6)Search:anonymous  user can only search public files,logged in users can search his private files and public files
 	7)Client Side:windows platform,may use wpf to generate UI
 	8)Server Side:deploy the backend and store the data,connect to remote mysql database
+
+Steps to build project:
+
+​	Set sql server information in /dao/connect.js
+
+​	run a.sh or npm start
+
+​	open the website using https, connect using http is forbidden.
+
+​	https://localhost:3000
+
