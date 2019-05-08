@@ -7,8 +7,8 @@
 6 silly lifecycle anonymous@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle anonymous@0.0.0~start: anonymous@0.0.0
 8 verbose lifecycle anonymous@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle anonymous@0.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/mnt/d/workplace/express/Anonymous/Anonymous/node_modules/.bin:/home/xuhuayang/bin:/home/xuhuayang/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/Python35/Scripts:/mnt/c/Program Files/Python35:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath_target_5818937:/mnt/c/Windows/System32:/mnt/c/Windows:/mnt/c/Windows/System32/wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/mnt/d/workplace/php:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/livea/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/livea/AppData/Local/GitHubDesktop/bin:/mnt/c/Program Files/JetBrains/PyCharm 2018.3.3/bin:/mnt/c/Users/livea/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/Docker Toolbox:/snap/bin:/mnt/d/workplace/hadoop-2.85-src/bin:/mnt/d/workplace/hadoop-2.85-src/sbin
-10 verbose lifecycle anonymous@0.0.0~start: CWD: /mnt/d/workplace/express/Anonymous/Anonymous
+9 verbose lifecycle anonymous@0.0.0~start: PATH: /usr/share/npm/bin/node-gyp-bin:/mnt/c/Users/livea/Documents/GitHub/csci4140Project/Anonymous/node_modules/.bin:/home/xuhuayang/bin:/home/xuhuayang/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/c/Program Files/Python35/Scripts:/mnt/c/Program Files/Python35:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath_target_5818937:/mnt/c/Windows/System32:/mnt/c/Windows:/mnt/c/Windows/System32/wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0:/mnt/c/Windows/System32/OpenSSH:/mnt/c/Program Files/dotnet:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/DAL:/mnt/c/Program Files (x86)/Intel/Intel(R) Management Engine Components/IPT:/mnt/c/Program Files/Intel/Intel(R) Management Engine Components/IPT:/mnt/d/workplace/php:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/livea/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/livea/AppData/Local/GitHubDesktop/bin:/mnt/c/Program Files/JetBrains/PyCharm 2018.3.3/bin:/mnt/c/Users/livea/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/Docker Toolbox:/snap/bin:/mnt/d/workplace/hadoop-2.85-src/bin:/mnt/d/workplace/hadoop-2.85-src/sbin
+10 verbose lifecycle anonymous@0.0.0~start: CWD: /mnt/c/Users/livea/Documents/GitHub/csci4140Project/Anonymous
 11 silly lifecycle anonymous@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle anonymous@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle anonymous@0.0.0~start: Failed to exec start script
@@ -23,7 +23,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:821:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:211:5)
 15 verbose pkgid anonymous@0.0.0
-16 verbose cwd /mnt/d/workplace/express/Anonymous/Anonymous
+16 verbose cwd /mnt/c/Users/livea/Documents/GitHub/csci4140Project/Anonymous
 17 error Linux 4.4.0-17134-Microsoft
 18 error argv "/usr/bin/nodejs" "/usr/bin/npm" "start"
 19 error node v4.2.6
