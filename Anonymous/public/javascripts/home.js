@@ -7,6 +7,14 @@ window.onload = function(){
 	    	document.getElementById("callpost").click();
 		};
 	}
+
+	// var set = document.getElementById("set");
+	// set.onclick = function(){
+	// 	var abcd = document.getElementById("session").value;
+	// 	sessionStorage.abc = abcd;
+		
+	// }
+	// console.log(sessionStorage.abc);
 };
 
 
