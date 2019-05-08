@@ -30,3 +30,15 @@ CREATE TABLE user_list(
   primary key(userid)
 )DEFAULT charset=utf8mb3;
 
+expire time test:
+INSERT INTO anonymous (id, file_name, path, type,expire_time,tag1,tag2,tag3) values('668faf63df0d2aa0526e1ca8c471c1bb', 'testfile', '/storage/anonymous/668faf63df0d2aa0526e1ca8c471c1bb', 'public', '2019-04-08 15:59:36', 'a', 'b', 'c');
+
+use anonymous;
+
+#show tables;
+#select * from user_list;
+#select * from file;
+#select * from anonymous;
+
+#truncate table file;
+#truncate table anonymous;
