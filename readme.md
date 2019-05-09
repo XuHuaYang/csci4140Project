@@ -29,11 +29,24 @@ incognito netdisc:
 
 Steps to build project:
 
-​	Set sql server information in /dao/connect.js
+​	Set sql server information in /dao/dbConnect.js, change the mysql database information in function connectServer() to your database.
 
-​	run a.sh or npm start
+​	Then create sql table in mysql database according to the sql statement in /Anonymous/sql table.txt
 
-​	open the website using https, connect using http is forbidden.
+​	in /Anonymous folder run a.sh or command "npm start" 
+
+​	open the website using https, connection using http is forbidden.
 
 ​	https://localhost:3000
 
+​	Then using ngrok to expose your local url:
+
+​		To expose a https url, you have to login first.
+
+​		#./ngrok authtoken Your Tunnel Authtoken
+
+​		or you can run login.sh in Anonymous\ngrok folder
+
+​		Then run:  ./ngrok http https://localhost:3000 to expose your local url, it will generate a url to let others to get access to it.
+
+​		Then the establish is finished.
