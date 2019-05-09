@@ -1,2 +1,5 @@
- 363958 author XuHuaYang
-   1077 author WuZihao1
+ 363958 author XuHuaYang XuHuayang
+   1077 author WuZihao1 WuZihao
+
+Explanation of the significant discrepancy in the commit lines:
+	We used the express framwork to start our project, then we established the testing enviromnet on XuHuayang's Computer, including the npm packages. After distributing the workload, we initially works seperatly. While during the process of merging code, we together use XuHuayang's computer to merge and test each function by copying and pasting the file. So almost all the commits are done by XuHuayang. We distributed the workload fair enough and each one had done 1/3 part of whole project. 
